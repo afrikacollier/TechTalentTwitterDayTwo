@@ -40,7 +40,7 @@ public class Tweet {
 	
 	
 	@NotEmpty(message = "Tweet cannot be empty")
-	@Length(max= 200, message="Tweet cannot have more than 280 characters")
+	@Length(max= 280, message="Tweet cannot have more than 280 characters")
 	private String message;
 	
 	@CreationTimestamp
