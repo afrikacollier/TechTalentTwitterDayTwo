@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+	  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+	<head>
+		<title>Log in</title>
+		<meta charset="UTF-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<link rel="stylesheet" 
+			  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+		<link rel="stylesheet" 
+			  href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"/>
+		<link rel="stylesheet" href="/custom.css"/>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script src="https://maxcdn.boostrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+		<div class="container">
+			<h2>Welcome</h2>
+			<form th:action="@{/login}" method="post">
+				<input type="text" id="username" name="username" th:placeholder="Username"/><br/>
+				<input type="password" id="password" name="password" th:placeholder="Password"/><br/>
+				<div align="center" th:if="${param.error}">
+					<h4 style="color: red">Login unsuccessful.</h4>
+				</div>
+				<button class="btn btn-md btn-success btn-block" name="Submit" value="Login"
+						type="Submit">Log in</button>
+			</form>
+		</div>
+	</body>
+</html>
