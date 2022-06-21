@@ -2,6 +2,7 @@ package com.example.demo.models;
 
 
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -67,6 +68,23 @@ public class UserProfile {
 	@NotEmpty(message = "Please provide your last name")
 	private String lastName;
 	
+	//We are going to create a many to many mapping...
+	//But what will users be related to?
+	//Other Users!!!! We will have a many to many 
+	//mapping of UserProfile to UserProfile
+	
+	
+	//A User has many followers.............
+	//And User has many people they are following......
+	
+	
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(name="user_follower", joinColumns=@JoinColumn(name="user_id"),
+				inverseJoinColumns = @JoinColumn(name="follower_id"))
+	private List<UserProfile> followers;
+	
+	@ManyToMany(mappedBy="followers")
+	private List<UserProfile> following;
 	
 	private int active;
 	
