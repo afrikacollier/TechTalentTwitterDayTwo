@@ -19,7 +19,7 @@ public class TweetService {
 		return tweets;
 	}
 	
-	public List<Tweet> findByUser(UserProfile user) {
+	public List<Tweet> findAllByUser(UserProfile user) {
 		List<Tweet> tweets = tweetRepository.findAllByUserOrderByCreatedAtDesc(user);
 		return tweets;
 	}
