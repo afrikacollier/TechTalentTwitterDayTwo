@@ -17,8 +17,6 @@
 			</h2>
 			<h5>Joined <span th:text="${#dates.format(user.createdAt, 'MMMM dd, yyyy')}"></span></h5>
 			
-			<h3>Tweets</h3>
-			
 			<div th:replace="fragments/tweetlist"></div>
 		</div>
 	</body>
